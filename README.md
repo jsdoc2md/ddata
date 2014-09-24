@@ -3,15 +3,6 @@
 [![Build Status](https://travis-ci.org/75lb/ddata.svg?branch=master)](https://travis-ci.org/75lb/ddata)
 [![Dependency Status](https://david-dm.org/75lb/ddata.svg)](https://david-dm.org/75lb/ddata)
 
-#ddata
-
-##Install
-```sh
-$ npm install -g ddata
-```
-*Mac / Linux users may need to run with `sudo`*.
-
-#API Reference
 <a name="module_ddata"></a>
 #ddata
 helpers for working with doc-data
@@ -30,10 +21,10 @@ var ddata = require("ddata");
   * [ddata.modules()](#module_ddata.modules)
   * [ddata.module()](#module_ddata.module)
   * [ddata.classes()](#module_ddata.classes)
-  * [ddata~class_()](#module_ddata..class_)
-  * [ddata~misc()](#module_ddata..misc)
-  * [ddata~isClass()](#module_ddata..isClass)
-  * [ddata~orphans()](#module_ddata..orphans)
+  * [ddata.class()](#module_ddata.class)
+  * [ddata.misc()](#module_ddata.misc)
+  * [ddata.isClass()](#module_ddata.isClass)
+  * [ddata.ophans()](#module_ddata.ophans)
   * [ddata~identifiers()](#module_ddata..identifiers)
   * [ddata~children()](#module_ddata..children)
   * [ddata~descendants()](#module_ddata..descendants)
@@ -70,25 +61,21 @@ render the supplied block for the specified module
 ##ddata.classes()
 render the block for each class
 
-<a name="module_ddata..class_"></a>
-##ddata~class_()
+<a name="module_ddata.class"></a>
+##ddata.class()
 render the supplied block for the specified class
 
-**Scope**: inner function of [ddata](#module_ddata)  
-<a name="module_ddata..misc"></a>
-##ddata~misc()
+<a name="module_ddata.misc"></a>
+##ddata.misc()
 render the supplied block for each orphan with no scope set
 
-**Scope**: inner function of [ddata](#module_ddata)  
-<a name="module_ddata..isClass"></a>
-##ddata~isClass()
-**Scope**: inner function of [ddata](#module_ddata)  
+<a name="module_ddata.isClass"></a>
+##ddata.isClass()
 **Returns**: `boolean`  
-<a name="module_ddata..orphans"></a>
-##ddata~orphans()
+<a name="module_ddata.ophans"></a>
+##ddata.ophans()
 Returns an array of the top-level elements which have no parents
 
-**Scope**: inner function of [ddata](#module_ddata)  
 **Returns**: `array`  
 <a name="module_ddata..identifiers"></a>
 ##ddata~identifiers()
