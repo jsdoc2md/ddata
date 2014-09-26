@@ -12,10 +12,15 @@
   "scripts": {
     "test": "tape test/*.js",
     "lint": "jshint lib/*.js bin/*.js test/*.js; echo",
-    "docs": "jsdoc2md -t jsdoc2md/README.hbs lib/*.js > README.md; echo"
+    "docs": "jsdoc2md -t jsdoc2md/README.hbs lib/*.js > README.md; echo",
+    "p1": "jsdoc-parse '../jsdoc-parse/test/fixture/**/*.js' > test/fixture/everything.json",
+    "p2": "jsdoc-parse ../file-set/lib/file-set.js > test/fixture/file-set.json",
+    "p3": "jsdoc-parse ../handbrake-js/lib/* > test/fixture/handbrake.json",
+    "p": "npm run p1; npm run p2; npm run p3; echo"
   },
   "devDependencies": {
-    "jsdoc-to-markdown": "~0.5.7"
+    "jsdoc-to-markdown": "~0.5.7",
+    "tape": "^3.0.0"
   },
   "dependencies": {
     "array-tools": "^1.3.0",

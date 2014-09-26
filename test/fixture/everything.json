@@ -1,0 +1,362 @@
+[
+  {
+    "id": "module:cjs/class",
+    "name": "cjs/class",
+    "kind": "module",
+    "description": "exports a class",
+    "typicalname": "exp"
+  },
+  {
+    "id": "module:cjs/class^ExportedClass",
+    "name": "ExportedClass",
+    "kind": "class",
+    "isExported": true,
+    "alias": "module:cjs/class",
+    "codeName": "ExportedClass",
+    "description": "the exported class",
+    "memberof": "module:cjs/class"
+  },
+  {
+    "id": "module:cjs/class^ExportedClass()",
+    "name": "ExportedClass",
+    "kind": "constructor",
+    "description": "the exported contructor",
+    "memberof": "module:cjs/class^ExportedClass"
+  },
+  {
+    "id": "module:cjs/class^ExportedClass#prop",
+    "name": "prop",
+    "scope": "instance",
+    "kind": "member",
+    "description": "instance property",
+    "memberof": "module:cjs/class^ExportedClass",
+    "codeName": "this.prop"
+  },
+  {
+    "id": "module:cjs/class^ExportedClass.staticProp",
+    "name": "staticProp",
+    "scope": "static",
+    "kind": "member",
+    "description": "a static property for the exported class",
+    "memberof": "module:cjs/class^ExportedClass",
+    "codeName": "ExportedClass.staticProp"
+  },
+  {
+    "id": "module:cjs/class^ExportedClass~innerProp",
+    "name": "innerProp",
+    "scope": "inner",
+    "kind": "member",
+    "description": "inner module property",
+    "memberof": "module:cjs/class^ExportedClass",
+    "codeName": "innerProp"
+  },
+  {
+    "id": "module:cjs/function-alias",
+    "name": "cjs/function-alias",
+    "kind": "module",
+    "description": "exports a pointer to a function"
+  },
+  {
+    "id": "module:cjs/function-alias^sum",
+    "name": "sum",
+    "kind": "function",
+    "description": "the function",
+    "alias": "module:cjs/function-alias",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "number"
+          ]
+        },
+        "description": "the first number",
+        "name": "one"
+      },
+      {
+        "type": {
+          "names": [
+            "number"
+          ]
+        },
+        "description": "the second number",
+        "name": "two"
+      }
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "number"
+          ]
+        },
+        "description": "the calculation result"
+      }
+    ],
+    "codeName": "sum",
+    "isExported": true,
+    "memberof": "module:cjs/function-alias"
+  },
+  {
+    "id": "module:cjs/object-alias",
+    "name": "cjs/object-alias",
+    "kind": "module",
+    "description": "a module exporting an object"
+  },
+  {
+    "id": "module:cjs/object-alias^teams",
+    "name": "teams",
+    "kind": "member",
+    "description": "the teams",
+    "alias": "module:cjs/object-alias",
+    "codeName": "teams",
+    "isExported": true,
+    "memberof": "module:cjs/object-alias"
+  },
+  {
+    "id": "module:cjs/object",
+    "name": "cjs/object",
+    "kind": "module",
+    "description": "a module exporting `exports` directly",
+    "typicalname": "obj"
+  },
+  {
+    "id": "module:cjs/object.one",
+    "name": "one",
+    "scope": "static",
+    "kind": "member",
+    "description": "the first property",
+    "memberof": "module:cjs/object",
+    "type": {
+      "names": [
+        "number"
+      ]
+    },
+    "codeName": "exports.one"
+  },
+  {
+    "id": "module:cjs/object.two",
+    "name": "two",
+    "scope": "static",
+    "kind": "function",
+    "description": "the second property, a function",
+    "memberof": "module:cjs/object",
+    "examples": [
+      "this is the example"
+    ],
+    "codeName": "exports.two"
+  },
+  {
+    "id": "GlobalClass",
+    "name": "GlobalClass",
+    "scope": "global",
+    "kind": "class",
+    "augments": [
+      "String"
+    ],
+    "codeName": "GlobalClass",
+    "description": "a global class"
+  },
+  {
+    "id": "GlobalClass()",
+    "name": "GlobalClass",
+    "kind": "constructor",
+    "description": "the global class constructor",
+    "memberof": "GlobalClass",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "number"
+          ]
+        },
+        "description": "first param",
+        "name": "one"
+      },
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "second param",
+        "name": "two"
+      }
+    ]
+  },
+  {
+    "id": "GlobalClass#propOne",
+    "name": "propOne",
+    "scope": "instance",
+    "kind": "member",
+    "description": "an instance property",
+    "memberof": "GlobalClass",
+    "codeName": "this.propOne"
+  },
+  {
+    "id": "GlobalClass.propTwo",
+    "name": "propTwo",
+    "scope": "static",
+    "kind": "member",
+    "description": "a static property",
+    "memberof": "GlobalClass",
+    "codeName": "GlobalClass.propTwo"
+  },
+  {
+    "id": "exampleVar",
+    "name": "exampleVar",
+    "scope": "global",
+    "kind": "member",
+    "description": "an example var",
+    "examples": [
+      "var thisVar = funtion(){\n    return \"a value\";\n};"
+    ],
+    "type": {
+      "names": [
+        "string"
+      ]
+    },
+    "defaultvalue": "\"something\"",
+    "codeName": "exampleVar"
+  },
+  {
+    "id": "globalFunction",
+    "name": "globalFunction",
+    "scope": "global",
+    "kind": "function",
+    "description": "a global function",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "number"
+          ]
+        },
+        "description": "first param",
+        "name": "one"
+      },
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "second param",
+        "name": "two"
+      }
+    ],
+    "codeName": "globalFunction"
+  },
+  {
+    "id": "phantom",
+    "name": "phantom",
+    "kind": "mixin",
+    "description": "phantom mixin"
+  },
+  {
+    "id": "Eventful",
+    "name": "Eventful",
+    "scope": "global",
+    "kind": "mixin",
+    "description": "This provides methods used for event handling. It's not meant to\nbe used directly.",
+    "codeName": "Eventful"
+  },
+  {
+    "id": "Eventful.on",
+    "name": "on",
+    "scope": "static",
+    "kind": "function",
+    "description": "Register a handler function to be called whenever this event is fired.",
+    "memberof": "Eventful",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "Name of the event.",
+        "name": "eventName"
+      },
+      {
+        "type": {
+          "names": [
+            "function"
+          ]
+        },
+        "description": "The handler to call.",
+        "name": "handler"
+      }
+    ],
+    "codeName": "on"
+  },
+  {
+    "id": "Eventful.fire",
+    "name": "fire",
+    "scope": "static",
+    "kind": "function",
+    "description": "Fire an event, causing all handlers for that event name to run.",
+    "memberof": "Eventful",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "Name of the event.",
+        "name": "eventName"
+      },
+      {
+        "type": {
+          "names": [
+            "Object"
+          ]
+        },
+        "description": "The data provided to each handler.",
+        "name": "eventData"
+      }
+    ],
+    "codeName": "fire"
+  },
+  {
+    "id": "globalFunction",
+    "name": "globalFunction",
+    "scope": "global",
+    "kind": "function",
+    "description": "a global function returning multiple stuff",
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "if something you get a string back"
+      },
+      {
+        "type": {
+          "names": [
+            "object",
+            "function"
+          ]
+        },
+        "description": "or an object, or function"
+      }
+    ],
+    "codeName": "globalFunction"
+  },
+  {
+    "id": "globalVar",
+    "name": "globalVar",
+    "scope": "global",
+    "kind": "member",
+    "description": "a global var",
+    "type": {
+      "names": [
+        "string"
+      ]
+    },
+    "defaultvalue": "\"something\"",
+    "codeName": "globalVar"
+  }
+]
