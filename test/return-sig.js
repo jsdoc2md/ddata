@@ -6,7 +6,7 @@ function makeOptions(data){
     return { data: { root: data }, hash: {} };
 }
 
-test("sort by property", function(t){
+test("multiple returns specified", function(t){
     var identifier = { "returns": [ 
         { "type": { "names": [ "string" ] }, "description": "desc 1" },
         { "type": { "names": [ "object", "function" ] }, "description": "desc 2" }
@@ -16,3 +16,9 @@ test("sort by property", function(t){
     t.end();
 });
 
+test("no returns, one type", function(t){
+    var identifier = { "type": { "names": [ "string" ] } };
+    
+    t.equal(ddata.returnSig.call(identifier), "string")
+    t.end();
+});
