@@ -1,26 +1,32 @@
 var test = require("tape");
 var a = require("array-tools");
 var ddata = require("../");
-var fixture = require("./fixture/handbrake");
 
-var options = {
-    data: { root: fixture },
-    hash: {}
-};
-var options2 = {
-    data: { root: fixture },
-    hash: { style: "code" }
-};
+function makeOptions(data){
+    return { data: { root: data }, hash: {}, fn: function(context){
+        return context;
+    }};
+}
 
-var l = console.log;
+var options = makeOptions([
+    { id: "module:handbrake-js~Handbrake", "name": "Handbrake" },
+    { id: "module:cjs/class^ExportedClass~innerProp", "name": "innerProp" }
+]);
 
-l(ddata.linkTo("module:handbrake-js~Handbrake", options))
-l(ddata.linkTo("module:handbrake-js~Handbrake", options2))
-l(ddata.linkTo("module:clive", options))
-l(ddata.linkTo("number", options))
-l(ddata.linkTo("number", options2))
+test("link", function(t){
+    var result = ddata.link("module:handbrake-js~Handbrake", options);
+    t.deepEqual(result, { name: 'Handbrake', url: 'module_handbrake-js..Handbrake' });
+    t.end();
+});
 
-// test("linkTo", function(t){
-//     l(ddata.linkTo("clive", options))
-//     t.end();
-// });
+test("link", function(t){
+    var result = ddata.link("module:cjs/class^ExportedClass~innerProp", options);
+    t.deepEqual(result, { name: 'innerProp', url: 'module_cjs/class^ExportedClass..innerProp' });
+    t.end();
+});
+
+test("link", function(t){
+    var result = ddata.link("clive", options);
+    t.deepEqual(result, { name: 'clive', url: '' });
+    t.end();
+});
