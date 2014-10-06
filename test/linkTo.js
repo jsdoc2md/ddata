@@ -27,6 +27,6 @@ test("link", function(t){
 
 test("link", function(t){
     var result = ddata.link("clive", options);
-    t.deepEqual(result, { name: 'clive', url: '' });
+    t.deepEqual(result, { name: "clive", url: null });
     t.end();
 });
