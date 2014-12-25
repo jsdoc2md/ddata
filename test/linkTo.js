@@ -1,3 +1,4 @@
+"use strict";
 var test = require("tape");
 var a = require("array-tools");
 var ddata = require("../");
@@ -29,4 +30,14 @@ test("link", function(t){
     var result = ddata.link("clive", options);
     t.deepEqual(result, { name: "clive", url: null });
     t.end();
+});
+
+test("linkify", function (t) {
+    t.plan(1);
+
+    fs.createReadStream("test/fixture/class.json").pipe(dmd()).on("readable", function () {
+        var md = this.read();
+        if (md) t.ok(md.toString().split('[instance](http://zombo.com)').length >= 3);
+    });
+
 });

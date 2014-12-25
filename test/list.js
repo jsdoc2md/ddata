@@ -1,6 +1,6 @@
 var test = require("tape");
 var ddata = require("../");
-var l = console.log;
+var l = console.error;
 
 function makeOptions(data){
     return { data: { root: data }, hash: {} };
@@ -11,7 +11,7 @@ test("sort by property", function(t){
         { one: "fff" }, { one: "aaa" }, { one: "ggg" }
     ]);
     options.hash.sortBy = "one";
-    t.deepEqual(ddata.identifiers(options), [
+    t.deepEqual(ddata._identifiers(options), [
         { one: "aaa" }, { one: "fff" }, { one: "ggg" }
     ])
     t.end();
@@ -22,13 +22,13 @@ test("sort by none", function(t){
         { one: "fff" }, { one: "aaa" }, { one: "ggg" }
     ]);
     options.hash.sortBy = "none";
-    t.deepEqual(ddata.identifiers(options), [
+    t.deepEqual(ddata._identifiers(options), [
         { one: "fff" }, { one: "aaa" }, { one: "ggg" }
     ]);
     t.end();
 });
 
-test.only("descendants", function(t){
+test("descendants", function(t){
     var options = makeOptions([
         { id: "one" }, { id: "two", memberof: "one" }, { id: "three", memberof: "two" }, { id: "four"}
     ]);
