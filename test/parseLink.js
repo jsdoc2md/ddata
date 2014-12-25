@@ -3,12 +3,6 @@ var test = require("tape");
 var a = require("array-tools");
 var ddata = require("../");
 
-function makeOptions(data){
-    return { data: { root: data }, hash: {}, fn: function(context){
-        return context;
-    }};
-}
-
 test("{@link someSymbol}", function (t) {
     var text = "blah {@link someSymbol}";
     var result = [ { original: "{@link someSymbol}",  caption: "someSymbol", url: "someSymbol" } ];
@@ -96,6 +90,24 @@ test("multiple {@link someSymbol|caption here}", function (t) {
         {
             original: "{@link thingTwo|caption two}",
             caption: "caption two",
+            url: "thingTwo"
+        }
+    ];
+    t.deepEqual(ddata.parseLink(text), result);
+    t.end();
+});
+
+test("multiple {@link someSymbol Caption here}", function (t) {
+    var text = "blah {@link thingOne Caption one} blah {@link thingTwo Caption two} whatever";
+    var result = [
+        {
+            original: "{@link thingOne Caption one}",
+            caption: "Caption one",
+            url: "thingOne"
+        },
+        {
+            original: "{@link thingTwo Caption two}",
+            caption: "Caption two",
             url: "thingTwo"
         }
     ];
