@@ -13,6 +13,7 @@ var handlebars = require("handlebars");
 var ddata = require("ddata");
 handlebars.registerHelper(ddata);
 ```
+
 * [ddata](#module_ddata)
   * [.identifiers()](#module_ddata.identifiers)
   * [.orphans()](#module_ddata.orphans)
