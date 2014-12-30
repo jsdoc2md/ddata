@@ -10,7 +10,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "tape test/*.js | tap-spec",
+    "test": "tape test/*.js",
     "lint": "jshint lib/*.js test/*.js; echo",
     "docs": "jsdoc2md -t jsdoc2md/README.hbs --heading-depth 1 --example-code-gfm hbs lib/*.js > README.md; echo",
     "p1": "jsdoc-parse '../jsdoc-parse/test/fixture/**/*.js' > test/fixture/everything.json",
