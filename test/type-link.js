@@ -55,7 +55,7 @@ test("external:something with no description", function (t) {
         }
     ];
 
-    var expected = { name: 'String', url: 'https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String String' };
+    var expected = { name: 'String', url: 'https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String' };
     t.deepEqual(ddata._link("external:String", makeOptions(input)), expected);
     t.end();
 });
