@@ -25,6 +25,7 @@ handlebars.registerHelper(ddata);
   * [.misc()](#module_ddata.misc)
   * [.children()](#module_ddata.children)
   * [.link(id)](#module_ddata.link)
+  * [~_link(input, options)](#module_ddata.._link)
   * [.returnSig()](#module_ddata.returnSig)
   * [.isClass()](#module_ddata.isClass) ⇒ <code>boolean</code>
   * [._ophans()](#module_ddata._ophans) ⇒ <code>array</code>
@@ -33,12 +34,11 @@ handlebars.registerHelper(ddata);
   * [~descendants([sortBy], [min])](#module_ddata..descendants) ⇒ <code>Array.&lt;identifier&gt;</code>
   * [~exported()](#module_ddata..exported) ⇒ <code>identifier</code>
   * [~identifier()](#module_ddata..identifier)
-  * [~linkTo(id)](#module_ddata..linkTo) ⇒ <code>string</code>
   * [~anchorName()](#module_ddata..anchorName) ⇒ <code>string</code>
   * [~md()](#module_ddata..md)
   * [~methodSig()](#module_ddata..methodSig) ⇒ <code>string</code>
   * [~returnSig()](#module_ddata..returnSig) ⇒ <code>string</code>
-  * [~parseLink()](#module_ddata..parseLink) ⇒ <code>object</code>
+  * [~parseLink(text)](#module_ddata..parseLink) ⇒ <code>Array.&lt;{original: string, caption: string, url: string}&gt;</code>
   * [~parentName()](#module_ddata..parentName) ⇒ <code>string</code>
   * [~option()](#module_ddata..option)
 
@@ -91,6 +91,15 @@ render the supplied block for each child
   {{url}}  {{!-- prints 'module-someModule-property' --}}
 {{/link}}
 ```
+<a name="module_ddata.._link"></a>
+##ddata~_link(input, options)
+e.g. namepaths `module:Something` or type expression `Array.<module:Something>`
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| input | <code>string</code> | namepath or type expression |
+| options | <code>object</code> | the handlebars helper options object |
+
 <a name="module_ddata.returnSig"></a>
 ##ddata.returnSig()
 <a name="module_ddata.isClass"></a>
@@ -108,7 +117,6 @@ Returns an array of identifiers matching the query
 | ----- | ---- | ----------- |
 | \[sortBy\] | <code>string</code> | "kind" will sort by kind |
 
-**Scope**: inner function of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.._children"></a>
 ##ddata~_children([sortBy], [min]) ⇒ <code>Array.&lt;identifier&gt;</code>
 return the identifiers which are a `memberof` this one
@@ -118,7 +126,6 @@ return the identifiers which are a `memberof` this one
 | \[sortBy\] | <code>string</code> | "kind" |
 | \[min\] | <code>number</code> | only returns if there are `min` children |
 
-**Scope**: inner function of <code>[ddata](#module_ddata)</code>  
 **context**: {identifier}  
 <a name="module_ddata..descendants"></a>
 ##ddata~descendants([sortBy], [min]) ⇒ <code>Array.&lt;identifier&gt;</code>
@@ -129,66 +136,59 @@ return a flat list containing all decendants
 | \[sortBy\] | <code>string</code> | "kind" |
 | \[min\] | <code>number</code> | only returns if there are `min` children |
 
-**Scope**: inner function of <code>[ddata](#module_ddata)</code>  
 **context**: {identifier}  
 <a name="module_ddata..exported"></a>
 ##ddata~exported() ⇒ <code>identifier</code>
 returns the exported identifier of this module
 
-**Scope**: inner function of <code>[ddata](#module_ddata)</code>  
 **context**: {identifier} - only works on a module  
 <a name="module_ddata..identifier"></a>
 ##ddata~identifier()
 Returns an identifier matching the query
 
-**Scope**: inner function of <code>[ddata](#module_ddata)</code>  
-<a name="module_ddata..linkTo"></a>
-##ddata~linkTo(id) ⇒ <code>string</code>
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| id | <code>string</code> | the id to convert into a link |
-| options.hash.style | <code>string</code> | `plain` or `code` |
-
-**Scope**: inner function of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata..anchorName"></a>
 ##ddata~anchorName() ⇒ <code>string</code>
 returns a unique ID string suitable for use as an `href`.
 
-**Scope**: inner function of <code>[ddata](#module_ddata)</code>  
 **context**: {identifier}  
+**Example**  
+```js
+> ddata.anchorName.call({ id: "module:yeah--Yeah()" })
+'module_yeah--Yeah_new'
+```
 <a name="module_ddata..md"></a>
 ##ddata~md()
 converts the supplied text to markdown
 
-**Scope**: inner function of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata..methodSig"></a>
 ##ddata~methodSig() ⇒ <code>string</code>
 Returns the method signature, e.g. `(options, [onComplete])`
 
-**Scope**: inner function of <code>[ddata](#module_ddata)</code>  
 **context**: {identifier}  
 <a name="module_ddata..returnSig"></a>
 ##ddata~returnSig() ⇒ <code>string</code>
 Returns the returns signature, e.g. `string | object`
 
-**Scope**: inner function of <code>[ddata](#module_ddata)</code>  
 **context**: {identifier}  
 <a name="module_ddata..parseLink"></a>
-##ddata~parseLink() ⇒ <code>object</code>
+##ddata~parseLink(text) ⇒ <code>Array.&lt;{original: string, caption: string, url: string}&gt;</code>
 extracts url and caption data from @link tags
 
-**Scope**: inner function of <code>[ddata](#module_ddata)</code>  
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| text | <code>string</code> | a string containing one or more {@link} tags |
+
 <a name="module_ddata..parentName"></a>
 ##ddata~parentName() ⇒ <code>string</code>
 returns the parent name, instantiated if necessary
 
-**Scope**: inner function of <code>[ddata](#module_ddata)</code>  
 **context**: {identifier}  
 <a name="module_ddata..option"></a>
 ##ddata~option()
 returns a dmd option, e.g. "sort-by", "heading-depth" etc.
 
-**Scope**: inner function of <code>[ddata](#module_ddata)</code>  
 
 
 *documented by [jsdoc-to-markdown](https://github.com/75lb/jsdoc-to-markdown)*
+
+&copy; 2015 Lloyd Brookes <75pound@gmail.com>
