@@ -13,12 +13,14 @@ test("_orphans", function(t){
         { id: "3", kind: "external" },
         { id: "4" },
         { id: "5", memberof: "something", kind: "external" },
-        { id: "6" }
+        { id: "6" },
+        { id: "7", kind: "external", description: "clive" }
     ]);
     var result = ddata._orphans(options);
     t.deepEqual(result, [
         { id: "4" },
-        { id: "6" }
+        { id: "6" },
+        { id: "7", kind: "external", description: "clive" }
     ]);
     t.end();
 });

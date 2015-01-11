@@ -6,7 +6,7 @@ function makeOptions(data){
     return { data: { root: data }, hash: {} };
 }
 
-test("_orphans", function(t){
+test("_children", function(t){
     var parent = { id: "something" };
     var options = makeOptions([
         { id: "1", memberof: "something" },
