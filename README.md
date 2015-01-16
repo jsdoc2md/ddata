@@ -5,7 +5,7 @@
 
 <a name="module_ddata"></a>
 #ddata
-Ddata is a collection of handlebars helpers for working with doc-data
+Ddata is a collection of handlebars helpers for working with the output of jsdoc-parse
 
 **Example**  
 ```js
@@ -25,15 +25,16 @@ handlebars.registerHelper(ddata);
   * [.misc()](#module_ddata.misc)
   * [.children()](#module_ddata.children)
   * [.link(id)](#module_ddata.link)
-  * [~_link(input, options)](#module_ddata.._link)
   * [.returnSig()](#module_ddata.returnSig)
   * [.isClass()](#module_ddata.isClass) ⇒ <code>boolean</code>
   * [._ophans()](#module_ddata._ophans) ⇒ <code>array</code>
+  * [~_link(input, options)](#module_ddata.._link)
   * [~_identifiers([sortBy])](#module_ddata.._identifiers) ⇒ <code>array</code>
   * [~_children([sortBy], [min])](#module_ddata.._children) ⇒ <code>Array.&lt;identifier&gt;</code>
   * [~descendants([sortBy], [min])](#module_ddata..descendants) ⇒ <code>Array.&lt;identifier&gt;</code>
   * [~exported()](#module_ddata..exported) ⇒ <code>identifier</code>
   * [~identifier()](#module_ddata..identifier)
+  * [~parent()](#module_ddata..parent)
   * [~anchorName()](#module_ddata..anchorName) ⇒ <code>string</code>
   * [~md()](#module_ddata..md)
   * [~methodSig()](#module_ddata..methodSig) ⇒ <code>string</code>
@@ -91,15 +92,6 @@ render the supplied block for each child
   {{url}}  {{!-- prints 'module-someModule-property' --}}
 {{/link}}
 ```
-<a name="module_ddata.._link"></a>
-##ddata~_link(input, options)
-e.g. namepaths `module:Something` or type expression `Array.<module:Something>`
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| input | <code>string</code> | namepath or type expression |
-| options | <code>object</code> | the handlebars helper options object |
-
 <a name="module_ddata.returnSig"></a>
 ##ddata.returnSig()
 <a name="module_ddata.isClass"></a>
@@ -108,6 +100,15 @@ e.g. namepaths `module:Something` or type expression `Array.<module:Something>`
 <a name="module_ddata._ophans"></a>
 ##ddata._ophans() ⇒ <code>array</code>
 Returns an array of the top-level elements which have no parents
+
+<a name="module_ddata.._link"></a>
+##ddata~_link(input, options)
+e.g. namepaths `module:Something` or type expression `Array.<module:Something>`
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| input | <code>string</code> | namepath or type expression |
+| options | <code>object</code> | the handlebars helper options object |
 
 <a name="module_ddata.._identifiers"></a>
 ##ddata~_identifiers([sortBy]) ⇒ <code>array</code>
@@ -119,7 +120,7 @@ Returns an array of identifiers matching the query
 
 <a name="module_ddata.._children"></a>
 ##ddata~_children([sortBy], [min]) ⇒ <code>Array.&lt;identifier&gt;</code>
-return the identifiers which are a `memberof` this one
+return the identifiers which are a `memberof` this one. Exclude externals without descriptions.
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
@@ -145,6 +146,10 @@ returns the exported identifier of this module
 <a name="module_ddata..identifier"></a>
 ##ddata~identifier()
 Returns an identifier matching the query
+
+<a name="module_ddata..parent"></a>
+##ddata~parent()
+Returns the parent
 
 <a name="module_ddata..anchorName"></a>
 ##ddata~anchorName() ⇒ <code>string</code>
