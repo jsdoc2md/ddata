@@ -1,6 +1,5 @@
 var test = require("tape");
 var ddata = require("../");
-var l = console.error;
 
 function makeOptions(data){
     return { data: { root: data }, hash: {} };

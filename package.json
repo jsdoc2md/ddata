@@ -19,12 +19,11 @@
     "p": "npm run p1; npm run p2; npm run p3; echo"
   },
   "devDependencies": {
-    "jsdoc-to-markdown": "~0.5.7",
     "tape": "^3.4.0"
   },
   "dependencies": {
     "array-tools": "^1.3.0",
-    "boil-js": "^0.2.9",
+    "boil": "^0.2.10",
     "marked": "^0.3.3",
     "object-tools": "^1.1.1",
     "string-tools": "^0.1.5"

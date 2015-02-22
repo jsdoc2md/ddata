@@ -20,10 +20,10 @@ test("_globals", function(t){
     var result = ddata._globals(options);
     t.deepEqual(result, [
         { id: "1", scope: "global" },
-        { id: "5", scope: "global", kind: "member" },
         { id: "2", scope: "global", kind: "function" },
+        { id: "3", scope: "global", kind: "external", description: "clive" },
+        { id: "5", scope: "global", kind: "member" },
         { id: "7", scope: "global", kind: "function" },
-        { id: "3", scope: "global", kind: "external", description: "clive" }
     ]);
     t.end();
 });
