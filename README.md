@@ -332,6 +332,5 @@ True if there at least two top-level identifiers (i.e. globals or modules)
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **Category**: returns boolean  
 
-*documented by [jsdoc-to-markdown](https://github.com/75lb/jsdoc-to-markdown)*
-
-&copy; 2015 Lloyd Brookes <75pound@gmail.com>
+* * * 
+&copy; 2015 Lloyd Brookes <75pound@gmail.com>. *Documented by [jsdoc-to-markdown](https://github.com/75lb/jsdoc-to-markdown)*.
