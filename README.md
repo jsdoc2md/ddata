@@ -333,4 +333,4 @@ True if there at least two top-level identifiers (i.e. globals or modules)
 **Category**: returns boolean  
 
 * * * 
-&copy; 2015 Lloyd Brookes <75pound@gmail.com>. *Documented by [jsdoc-to-markdown](https://github.com/75lb/jsdoc-to-markdown)*.
+&copy; 2015 Lloyd Brookes \<75pound@gmail.com\>. Documented by [jsdoc-to-markdown](https://github.com/75lb/jsdoc-to-markdown).
