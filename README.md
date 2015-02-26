@@ -27,14 +27,14 @@ handlebars.registerHelper(ddata);
   * [._link(input, options)](#module_ddata._link)
   * [.returnSig2()](#module_ddata.returnSig2) ⇒ <code>Object</code>
   * [.isClass()](#module_ddata.isClass) ⇒ <code>boolean</code>
+  * [.isClassMember()](#module_ddata.isClassMember) ⇒ <code>boolean</code>
+  * [.isEvent()](#module_ddata.isEvent) ⇒ <code>boolean</code>
   * [._identifiers([sortBy])](#module_ddata._identifiers) ⇒ <code>array</code>
   * [._children([sortBy], [min])](#module_ddata._children) ⇒ <code>Array.&lt;identifier&gt;</code>
   * [.descendants([sortBy], [min])](#module_ddata.descendants) ⇒ <code>Array.&lt;identifier&gt;</code>
   * [.exported()](#module_ddata.exported) ⇒ <code>identifier</code>
   * [.identifier()](#module_ddata.identifier)
   * [.parent()](#module_ddata.parent)
-  * [.methodSig()](#module_ddata.methodSig) ⇒ <code>string</code>
-  * [.returnSig()](#module_ddata.returnSig) ⇒ <code>string</code>
   * [.parseLink(text)](#module_ddata.parseLink) ⇒ <code>Array.&lt;{original: string, caption: string, url: string}&gt;</code>
   * [.parentName()](#module_ddata.parentName) ⇒ <code>string</code>
   * [.option()](#module_ddata.option)
@@ -63,48 +63,51 @@ handlebars.registerHelper(ddata);
   * _Returns string_
     * [.anchorName()](#module_ddata.anchorName) ⇒ <code>string</code>
     * [.md()](#module_ddata.md)
+    * [.methodSig()](#module_ddata.methodSig) ⇒ <code>string</code>
+  * _returns boolean_
+    * [.showMainIndex()](#module_ddata.showMainIndex) ⇒ <code>boolean</code>
 
 <a name="module_ddata._globals"></a>
 ## ddata._globals()
 omits externals without a description
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.class"></a>
 ## ddata.class()
 render the supplied block for the specified class
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.function"></a>
 ## ddata.function()
 render the supplied block for the specified function
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.namespace"></a>
 ## ddata.namespace()
 render the supplied block for the specified function
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.enum"></a>
 ## ddata.enum()
 render the supplied block for the specified enum
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.misc"></a>
 ## ddata.misc()
 render the supplied block for each orphan with no scope set
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.children"></a>
 ## ddata.children()
 render the supplied block for each child
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.indexChildren"></a>
 ## ddata.indexChildren()
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.link"></a>
 ## ddata.link(id)
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -121,7 +124,7 @@ render the supplied block for each child
 ## ddata._link(input, options)
 e.g. namepaths `module:Something` or type expression `Array.<module:Something>`
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -130,16 +133,26 @@ e.g. namepaths `module:Something` or type expression `Array.<module:Something>`
 
 <a name="module_ddata.returnSig2"></a>
 ## ddata.returnSig2() ⇒ <code>Object</code>
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.isClass"></a>
 ## ddata.isClass() ⇒ <code>boolean</code>
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **this**: {identifier}  
+<a name="module_ddata.isClassMember"></a>
+## ddata.isClassMember() ⇒ <code>boolean</code>
+returns true if the parent of the current identifier is a class
+
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
+<a name="module_ddata.isEvent"></a>
+## ddata.isEvent() ⇒ <code>boolean</code>
+returns true if this is an event
+
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata._identifiers"></a>
 ## ddata._identifiers([sortBy]) ⇒ <code>array</code>
 Returns an array of identifiers matching the query
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -149,7 +162,7 @@ Returns an array of identifiers matching the query
 ## ddata._children([sortBy], [min]) ⇒ <code>Array.&lt;identifier&gt;</code>
 return the identifiers which are a `memberof` this one. Exclude externals without descriptions.
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **this**: {identifier}  
 
 | Param | Type | Description |
@@ -161,7 +174,7 @@ return the identifiers which are a `memberof` this one. Exclude externals withou
 ## ddata.descendants([sortBy], [min]) ⇒ <code>Array.&lt;identifier&gt;</code>
 return a flat list containing all decendants
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **this**: {identifier}  
 
 | Param | Type | Description |
@@ -173,35 +186,23 @@ return a flat list containing all decendants
 ## ddata.exported() ⇒ <code>identifier</code>
 returns the exported identifier of this module
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **this**: {identifier}  
 <a name="module_ddata.identifier"></a>
 ## ddata.identifier()
 Returns an identifier matching the query
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.parent"></a>
 ## ddata.parent()
 Returns the parent
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
-<a name="module_ddata.methodSig"></a>
-## ddata.methodSig() ⇒ <code>string</code>
-Returns the method signature, e.g. `(options, [onComplete])`
-
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
-**this**: {identifier}  
-<a name="module_ddata.returnSig"></a>
-## ddata.returnSig() ⇒ <code>string</code>
-Returns the returns signature, e.g. `string | object`
-
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
-**this**: {identifier}  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.parseLink"></a>
 ## ddata.parseLink(text) ⇒ <code>Array.&lt;{original: string, caption: string, url: string}&gt;</code>
 extracts url and caption data from @link tags
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -211,99 +212,99 @@ extracts url and caption data from @link tags
 ## ddata.parentName() ⇒ <code>string</code>
 returns the parent name, instantiated if necessary
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **this**: {identifier}  
 <a name="module_ddata.option"></a>
 ## ddata.option()
 returns a dmd option, e.g. "sort-by", "heading-depth" etc.
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.optionEquals"></a>
 ## ddata.optionEquals()
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.optionSet"></a>
 ## ddata.optionSet()
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.optionIsSet"></a>
 ## ddata.optionIsSet()
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.indent"></a>
 ## ddata.indent()
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.stripNewlines"></a>
 ## ddata.stripNewlines()
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.headingDepth"></a>
 ## ddata.headingDepth()
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.depth"></a>
 ## ddata.depth()
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.depthIncrement"></a>
 ## ddata.depthIncrement()
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.depthDecrement"></a>
 ## ddata.depthDecrement()
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.indexDepth"></a>
 ## ddata.indexDepth()
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.indexDepthIncrement"></a>
 ## ddata.indexDepthIncrement()
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.indexDepthDecrement"></a>
 ## ddata.indexDepthDecrement()
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.indexDepth"></a>
 ## ddata.indexDepth()
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.identifiers"></a>
 ## ddata.identifiers()
 render the supplied block for each identifier in the query
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **Category**: Data block helper  
 <a name="module_ddata.orphans"></a>
 ## ddata.orphans()
 render the supplied block for each parent (global identifier, or module)
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **Category**: Data block helper  
 <a name="module_ddata.globals"></a>
 ## ddata.globals()
 render the supplied block for each parent (global identifier, or module)
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **Category**: Data block helper  
 <a name="module_ddata.modules"></a>
 ## ddata.modules()
 render the supplied block for each module
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **Category**: Data block helper  
 <a name="module_ddata.module"></a>
 ## ddata.module()
 render the supplied block for the specified module
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **Category**: Data block helper  
 <a name="module_ddata.classes"></a>
 ## ddata.classes()
 render the block for each class
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **Category**: Data block helper  
 <a name="module_ddata._orphans"></a>
 ## ddata._orphans() ⇒ <code>array</code>
 Returns an array of the top-level elements which have no parents. Output only includes externals which have a description.
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **Category**: Returns list  
 <a name="module_ddata.anchorName"></a>
 ## ddata.anchorName() ⇒ <code>string</code>
 returns a unique ID string suitable for use as an `href`.
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **Category**: Returns string  
 **this**: {identifier}  
 **Example**  
@@ -315,8 +316,21 @@ returns a unique ID string suitable for use as an `href`.
 ## ddata.md()
 converts the supplied text to markdown
 
-**Scope**: static method of <code>[ddata](#module_ddata)</code>  
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **Category**: Returns string  
+<a name="module_ddata.methodSig"></a>
+## ddata.methodSig() ⇒ <code>string</code>
+Returns the method signature, e.g. `(options, [onComplete])`
+
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
+**Category**: Returns string  
+**this**: {identifier}  
+<a name="module_ddata.showMainIndex"></a>
+## ddata.showMainIndex() ⇒ <code>boolean</code>
+True if there at least two top-level identifiers (i.e. globals or modules)
+
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
+**Category**: returns boolean  
 
 *documented by [jsdoc-to-markdown](https://github.com/75lb/jsdoc-to-markdown)*
 
