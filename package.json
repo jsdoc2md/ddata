@@ -12,7 +12,7 @@
   "scripts": {
     "test": "tape test/*.js",
     "lint": "jshint lib/*.js test/*.js; echo",
-    "docs": "jsdoc2md -t jsdoc2md/README.hbs --heading-depth 1 --example-lang hbs lib/*.js > README.md; echo",
+    "docs": "jsdoc2md -t jsdoc2md/README.hbs -l hbs lib/*.js > README.md; echo",
     "p1": "jsdoc-parse '../jsdoc-parse/test/fixture/**/*.js' > test/fixture/everything.json",
     "p2": "jsdoc-parse ../file-set/lib/file-set.js > test/fixture/file-set.json",
     "p3": "jsdoc-parse ../handbrake-js/lib/* > test/fixture/handbrake.json",
