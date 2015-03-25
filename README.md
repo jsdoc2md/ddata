@@ -5,121 +5,85 @@
 
 <a name="module_ddata"></a>
 ## ddata
-Ddata is a collection of handlebars helpers for working with the output of jsdoc-parse
+ddata is a collection of handlebars helpers for working with the documentation data output by [jsdoc-parse](https://github.com/75lb/jsdoc-parse).
 
 **Example**  
 ```js
 var handlebars = require("handlebars");
 var ddata = require("ddata");
+var docs = require("./docs.json"); // jsdoc-parse output
+
 handlebars.registerHelper(ddata);
+var template = 
+"{{#module name='yeah-module'}}\
+The author of the module is: {{author}}.\
+{{/module}}";
+console.log(handlebars.compile(template)(docs));
 ```
 
 * [ddata](#module_ddata)
-  * [._globals()](#module_ddata._globals)
-  * [.class()](#module_ddata.class)
-  * [.function()](#module_ddata.function)
-  * [.namespace()](#module_ddata.namespace)
-  * [.enum()](#module_ddata.enum)
-  * [.misc()](#module_ddata.misc)
-  * [.children()](#module_ddata.children)
-  * [.indexChildren()](#module_ddata.indexChildren)
-  * [.link(id)](#module_ddata.link)
-  * [._link(input, options)](#module_ddata._link)
-  * [.returnSig2()](#module_ddata.returnSig2) ⇒ <code>Object</code>
-  * [.isClass()](#module_ddata.isClass) ⇒ <code>boolean</code>
-  * [.isClassMember()](#module_ddata.isClassMember) ⇒ <code>boolean</code>
-  * [.isEvent()](#module_ddata.isEvent) ⇒ <code>boolean</code>
-  * [._identifiers([sortBy])](#module_ddata._identifiers) ⇒ <code>array</code>
-  * [._children([sortBy], [min])](#module_ddata._children) ⇒ <code>Array.&lt;identifier&gt;</code>
-  * [.descendants([sortBy], [min])](#module_ddata.descendants) ⇒ <code>Array.&lt;identifier&gt;</code>
-  * [.exported()](#module_ddata.exported) ⇒ <code>identifier</code>
-  * [.identifier()](#module_ddata.identifier)
-  * [.parentObject()](#module_ddata.parentObject)
-  * [.parseLink(text)](#module_ddata.parseLink) ⇒ <code>Array.&lt;{original: string, caption: string, url: string}&gt;</code>
-  * [.parentName()](#module_ddata.parentName) ⇒ <code>string</code>
-  * [.option()](#module_ddata.option)
-  * [.optionEquals()](#module_ddata.optionEquals)
-  * [.optionSet()](#module_ddata.optionSet)
-  * [.optionIsSet()](#module_ddata.optionIsSet)
-  * [.indent()](#module_ddata.indent)
-  * [.stripNewlines()](#module_ddata.stripNewlines)
-  * [.headingDepth()](#module_ddata.headingDepth)
-  * [.depth()](#module_ddata.depth)
-  * [.depthIncrement()](#module_ddata.depthIncrement)
-  * [.depthDecrement()](#module_ddata.depthDecrement)
-  * [.indexDepth()](#module_ddata.indexDepth)
-  * [.indexDepthIncrement()](#module_ddata.indexDepthIncrement)
-  * [.indexDepthDecrement()](#module_ddata.indexDepthDecrement)
-  * [.indexDepth()](#module_ddata.indexDepth)
-  * _Data block helper_
-    * [.identifiers()](#module_ddata.identifiers)
-    * [.orphans()](#module_ddata.orphans)
-    * [.globals()](#module_ddata.globals)
-    * [.modules()](#module_ddata.modules)
-    * [.module()](#module_ddata.module)
-    * [.classes()](#module_ddata.classes)
-  * _Returns list_
-    * [._orphans()](#module_ddata._orphans) ⇒ <code>array</code>
-  * _Returns string_
-    * [.anchorName()](#module_ddata.anchorName) ⇒ <code>string</code>
-    * [.md()](#module_ddata.md)
-    * [.methodSig()](#module_ddata.methodSig) ⇒ <code>string</code>
-  * _returns boolean_
-    * [.showMainIndex()](#module_ddata.showMainIndex) ⇒ <code>boolean</code>
+  * _static_
+    * [._globals()](#module_ddata._globals)
+    * [._link(input, options)](#module_ddata._link)
+    * [.isClass()](#module_ddata.isClass) ⇒ <code>boolean</code>
+    * [.isClassMember()](#module_ddata.isClassMember) ⇒ <code>boolean</code>
+    * [.isEvent()](#module_ddata.isEvent) ⇒ <code>boolean</code>
+    * [._identifiers([sortBy])](#module_ddata._identifiers) ⇒ <code>array</code>
+    * [._children([sortBy], [min])](#module_ddata._children) ⇒ <code>Array.&lt;identifier&gt;</code>
+    * [.descendants([sortBy], [min])](#module_ddata.descendants) ⇒ <code>Array.&lt;identifier&gt;</code>
+    * [.exported()](#module_ddata.exported) ⇒ <code>identifier</code>
+    * [.identifier()](#module_ddata.identifier)
+    * [.parentObject()](#module_ddata.parentObject)
+    * [.parseLink(text)](#module_ddata.parseLink) ⇒ <code>Array.&lt;{original: string, caption: string, url: string}&gt;</code>
+    * [.parentName()](#module_ddata.parentName) ⇒ <code>string</code>
+    * [.option()](#module_ddata.option)
+    * [.optionEquals()](#module_ddata.optionEquals)
+    * [.optionSet()](#module_ddata.optionSet)
+    * [.optionIsSet()](#module_ddata.optionIsSet)
+    * [.indent()](#module_ddata.indent)
+    * [.stripNewlines()](#module_ddata.stripNewlines)
+    * [.headingDepth()](#module_ddata.headingDepth)
+    * [.depth()](#module_ddata.depth)
+    * [.depthIncrement()](#module_ddata.depthIncrement)
+    * [.depthDecrement()](#module_ddata.depthDecrement)
+    * [.indexDepth()](#module_ddata.indexDepth)
+    * [.indexDepthIncrement()](#module_ddata.indexDepthIncrement)
+    * [.indexDepthDecrement()](#module_ddata.indexDepthDecrement)
+    * [.indexDepth()](#module_ddata.indexDepth)
+    * _Block helper: selector_
+      * [.identifiers()](#module_ddata.identifiers)
+      * [.orphans()](#module_ddata.orphans)
+      * [.globals()](#module_ddata.globals)
+      * [.modules()](#module_ddata.modules)
+      * [.module()](#module_ddata.module)
+      * [.classes()](#module_ddata.classes)
+      * [.class()](#module_ddata.class)
+      * [.function()](#module_ddata.function)
+      * [.namespace()](#module_ddata.namespace)
+      * [.enum()](#module_ddata.enum)
+      * [.misc()](#module_ddata.misc)
+      * [.children()](#module_ddata.children)
+      * [.indexChildren()](#module_ddata.indexChildren)
+    * _Block helper: util_
+      * [.link(id)](#module_ddata.link)
+      * [.returnSig2()](#module_ddata.returnSig2) ⇒ <code>Object</code>
+    * _Returns list_
+      * [._orphans()](#module_ddata._orphans) ⇒ <code>array</code>
+    * _Returns string_
+      * [.anchorName()](#module_ddata.anchorName) ⇒ <code>string</code>
+      * [.md()](#module_ddata.md)
+      * [.methodSig()](#module_ddata.methodSig) ⇒ <code>string</code>
+    * _returns boolean_
+      * [.showMainIndex()](#module_ddata.showMainIndex) ⇒ <code>boolean</code>
+  * _inner_
+    * _Block helper: util_
+      * [~sig()](#module_ddata..sig)
 
 <a name="module_ddata._globals"></a>
 ### ddata._globals()
 omits externals without a description
 
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
-<a name="module_ddata.class"></a>
-### ddata.class()
-render the supplied block for the specified class
-
-**Kind**: static method of <code>[ddata](#module_ddata)</code>  
-<a name="module_ddata.function"></a>
-### ddata.function()
-render the supplied block for the specified function
-
-**Kind**: static method of <code>[ddata](#module_ddata)</code>  
-<a name="module_ddata.namespace"></a>
-### ddata.namespace()
-render the supplied block for the specified function
-
-**Kind**: static method of <code>[ddata](#module_ddata)</code>  
-<a name="module_ddata.enum"></a>
-### ddata.enum()
-render the supplied block for the specified enum
-
-**Kind**: static method of <code>[ddata](#module_ddata)</code>  
-<a name="module_ddata.misc"></a>
-### ddata.misc()
-render the supplied block for each orphan with no scope set
-
-**Kind**: static method of <code>[ddata](#module_ddata)</code>  
-<a name="module_ddata.children"></a>
-### ddata.children()
-render the supplied block for each child
-
-**Kind**: static method of <code>[ddata](#module_ddata)</code>  
-<a name="module_ddata.indexChildren"></a>
-### ddata.indexChildren()
-**Kind**: static method of <code>[ddata](#module_ddata)</code>  
-<a name="module_ddata.link"></a>
-### ddata.link(id)
-**Kind**: static method of <code>[ddata](#module_ddata)</code>  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| id | <code>string</code> | the ID to link to, e.g. `external:XMLHttpRequest`, `GlobalClass#propOne` etc. |
-
-**Example**  
-```hbs
-{{#link "module:someModule.property"~}}
-  {{name}} {{!-- prints 'property' --}}
-  {{url}}  {{!-- prints 'module-someModule-property' --}}
-{{/link}}
-```
 <a name="module_ddata._link"></a>
 ### ddata._link(input, options)
 e.g. namepaths `module:Something` or type expression `Array.<module:Something>`
@@ -131,9 +95,6 @@ e.g. namepaths `module:Something` or type expression `Array.<module:Something>`
 | input | <code>string</code> | namepath or type expression |
 | options | <code>object</code> | the handlebars helper options object |
 
-<a name="module_ddata.returnSig2"></a>
-### ddata.returnSig2() ⇒ <code>Object</code>
-**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.isClass"></a>
 ### ddata.isClass() ⇒ <code>boolean</code>
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
@@ -263,37 +224,97 @@ returns a dmd option, e.g. "sort-by", "heading-depth" etc.
 render the supplied block for each identifier in the query
 
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
-**Category**: Data block helper  
+**Category**: Block helper: selector  
 <a name="module_ddata.orphans"></a>
 ### ddata.orphans()
 render the supplied block for each parent (global identifier, or module)
 
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
-**Category**: Data block helper  
+**Category**: Block helper: selector  
 <a name="module_ddata.globals"></a>
 ### ddata.globals()
 render the supplied block for each parent (global identifier, or module)
 
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
-**Category**: Data block helper  
+**Category**: Block helper: selector  
 <a name="module_ddata.modules"></a>
 ### ddata.modules()
 render the supplied block for each module
 
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
-**Category**: Data block helper  
+**Category**: Block helper: selector  
 <a name="module_ddata.module"></a>
 ### ddata.module()
 render the supplied block for the specified module
 
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
-**Category**: Data block helper  
+**Category**: Block helper: selector  
 <a name="module_ddata.classes"></a>
 ### ddata.classes()
 render the block for each class
 
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
-**Category**: Data block helper  
+**Category**: Block helper: selector  
+<a name="module_ddata.class"></a>
+### ddata.class()
+render the supplied block for the specified class
+
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
+**Category**: Block helper: selector  
+<a name="module_ddata.function"></a>
+### ddata.function()
+render the supplied block for the specified function
+
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
+**Category**: Block helper: selector  
+<a name="module_ddata.namespace"></a>
+### ddata.namespace()
+render the supplied block for the specified function
+
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
+**Category**: Block helper: selector  
+<a name="module_ddata.enum"></a>
+### ddata.enum()
+render the supplied block for the specified enum
+
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
+**Category**: Block helper: selector  
+<a name="module_ddata.misc"></a>
+### ddata.misc()
+render the supplied block for each orphan with no scope set
+
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
+**Category**: Block helper: selector  
+<a name="module_ddata.children"></a>
+### ddata.children()
+render the supplied block for each child
+
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
+**Category**: Block helper: selector  
+<a name="module_ddata.indexChildren"></a>
+### ddata.indexChildren()
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
+**Category**: Block helper: selector  
+<a name="module_ddata.link"></a>
+### ddata.link(id)
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
+**Category**: Block helper: util  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| id | <code>string</code> | the ID to link to, e.g. `external:XMLHttpRequest`, `GlobalClass#propOne` etc. |
+
+**Example**  
+```hbs
+{{#link "module:someModule.property"~}}
+  {{name}} {{!-- prints 'property' --}}
+  {{url}}  {{!-- prints 'module-someModule-property' --}}
+{{/link}}
+```
+<a name="module_ddata.returnSig2"></a>
+### ddata.returnSig2() ⇒ <code>Object</code>
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
+**Category**: Block helper: util  
 <a name="module_ddata._orphans"></a>
 ### ddata._orphans() ⇒ <code>array</code>
 Returns an array of the top-level elements which have no parents. Output only includes externals which have a description.
@@ -331,6 +352,10 @@ True if there at least two top-level identifiers (i.e. globals or modules)
 
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **Category**: returns boolean  
+<a name="module_ddata..sig"></a>
+### ddata~sig()
+**Kind**: inner method of <code>[ddata](#module_ddata)</code>  
+**Category**: Block helper: util  
 
 * * * 
 &copy; 2015 Lloyd Brookes \<75pound@gmail.com\>. Documented by [jsdoc-to-markdown](https://github.com/75lb/jsdoc-to-markdown).
