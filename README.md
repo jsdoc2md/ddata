@@ -1,7 +1,7 @@
 [![view on npm](http://img.shields.io/npm/v/ddata.svg)](https://www.npmjs.org/package/ddata)
 [![npm module downloads per month](http://img.shields.io/npm/dm/ddata.svg)](https://www.npmjs.org/package/ddata)
-[![Build Status](https://travis-ci.org/75lb/ddata.svg?branch=master)](https://travis-ci.org/75lb/ddata)
-[![Dependency Status](https://david-dm.org/75lb/ddata.svg)](https://david-dm.org/75lb/ddata)
+[![Build Status](https://travis-ci.org/jsdoc2md/ddata.svg?branch=master)](https://travis-ci.org/jsdoc2md/ddata)
+[![Dependency Status](https://david-dm.org/jsdoc2md/ddata.svg)](https://david-dm.org/jsdoc2md/ddata)
 
 <a name="module_ddata"></a>
 ## ddata
@@ -28,11 +28,11 @@ console.log(handlebars.compile(template)(docs));
     * [.isClass()](#module_ddata.isClass) ⇒ <code>boolean</code>
     * [.isClassMember()](#module_ddata.isClassMember) ⇒ <code>boolean</code>
     * [.isEvent()](#module_ddata.isEvent) ⇒ <code>boolean</code>
-    * [._identifiers([sortBy])](#module_ddata._identifiers) ⇒ <code>array</code>
+    * [._identifiers()](#module_ddata._identifiers) ⇒ <code>array</code>
     * [._children([sortBy], [min])](#module_ddata._children) ⇒ <code>Array.&lt;identifier&gt;</code>
     * [.descendants([sortBy], [min])](#module_ddata.descendants) ⇒ <code>Array.&lt;identifier&gt;</code>
     * [.exported()](#module_ddata.exported) ⇒ <code>identifier</code>
-    * [.identifier()](#module_ddata.identifier)
+    * [._identifier()](#module_ddata._identifier)
     * [.parentObject()](#module_ddata.parentObject)
     * [.parseLink(text)](#module_ddata.parseLink) ⇒ <code>Array.&lt;{original: string, caption: string, url: string}&gt;</code>
     * [.parentName()](#module_ddata.parentName) ⇒ <code>string</code>
@@ -56,6 +56,7 @@ console.log(handlebars.compile(template)(docs));
       * [.globals()](#module_ddata.globals)
       * [.modules()](#module_ddata.modules)
       * [.module()](#module_ddata.module)
+      * [.identifier()](#module_ddata.identifier)
       * [.classes()](#module_ddata.classes)
       * [.class()](#module_ddata.class)
       * [.function()](#module_ddata.function)
@@ -110,15 +111,10 @@ returns true if this is an event
 
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata._identifiers"></a>
-### ddata._identifiers([sortBy]) ⇒ <code>array</code>
+### ddata._identifiers() ⇒ <code>array</code>
 Returns an array of identifiers matching the query
 
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| [sortBy] | <code>string</code> | "kind" will sort by kind |
-
 <a name="module_ddata._children"></a>
 ### ddata._children([sortBy], [min]) ⇒ <code>Array.&lt;identifier&gt;</code>
 return the identifiers which are a `memberof` this one. Exclude externals without descriptions.
@@ -149,8 +145,8 @@ returns the exported identifier of this module
 
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **this**: {identifier}  
-<a name="module_ddata.identifier"></a>
-### ddata.identifier()
+<a name="module_ddata._identifier"></a>
+### ddata._identifier()
 Returns an identifier matching the query
 
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
@@ -246,6 +242,12 @@ render the supplied block for each module
 <a name="module_ddata.module"></a>
 ### ddata.module()
 render the supplied block for the specified module
+
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
+**Category**: Block helper: selector  
+<a name="module_ddata.identifier"></a>
+### ddata.identifier()
+render the supplied block for the specified identifier
 
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **Category**: Block helper: selector  
@@ -358,4 +360,4 @@ True if there at least two top-level identifiers (i.e. globals or modules)
 **Category**: Block helper: util  
 
 * * * 
-&copy; 2015 Lloyd Brookes \<75pound@gmail.com\>. Documented by [jsdoc-to-markdown](https://github.com/75lb/jsdoc-to-markdown).
+&copy; 2015 Lloyd Brookes \<75pound@gmail.com\>. Documented by [jsdoc-to-markdown](https://github.com/jsdoc2md/jsdoc-to-markdown).
