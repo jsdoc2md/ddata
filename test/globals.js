@@ -16,7 +16,6 @@ test("_globals", function(t){
         { id: "6" },
         { id: "7", scope: "global", kind: "function" },
     ]);
-    options.hash.sortBy = "scope,kind";
     var result = ddata._globals(options);
     t.deepEqual(result, [
         { id: "1", scope: "global" },

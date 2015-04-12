@@ -3,7 +3,7 @@
   "author": "Lloyd Brookes <75pound@gmail.com>",
   "version": "0.1.14",
   "description": "ddata",
-  "repository": "https://github.com/75lb/ddata.git",
+  "repository": "https://github.com/jsdoc2md/ddata.git",
   "main": "./lib/ddata.js",
   "keywords": [],
   "engines": {

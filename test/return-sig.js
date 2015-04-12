@@ -14,23 +14,6 @@ test("multiple returns specified", function(t){
         { "type": { "names": [ "string" ] }, "description": "desc 1" },
         { "type": { "names": [ "object", "function" ] }, "description": "desc 2" }
     ]};
-    
-    t.equal(ddata.returnSig.call(identifier), "string | object | function")
-    t.end();
-});
-
-test("no returns, one type", function(t){
-    var identifier = { "type": { "names": [ "string" ] } };
-    
-    t.equal(ddata.returnSig.call(identifier), "string")
-    t.end();
-});
-
-test("multiple returns specified", function(t){
-    var identifier = { "returns": [ 
-        { "type": { "names": [ "string" ] }, "description": "desc 1" },
-        { "type": { "names": [ "object", "function" ] }, "description": "desc 2" }
-    ]};
 
     var options = makeOptions(function(context){
         t.deepEqual(context, { symbol: "⇒", types: ["string", "object", "function"] } );
@@ -43,7 +26,7 @@ test("no returns, one type", function(t){
     var identifier = { "type": { "names": [ "string" ] } };
     
     var options = makeOptions(function(context){
-        t.deepEqual(context, { symbol: "→", types: ["string"] } );
+        t.deepEqual(context, { symbol: ":", types: ["string"] } );
         t.end();
     })
     ddata.returnSig2.call(identifier, options);
