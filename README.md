@@ -14,7 +14,7 @@ var ddata = require("ddata");
 var docs = require("./docs.json"); // jsdoc-parse output
 
 handlebars.registerHelper(ddata);
-var template = 
+var template =
 "{{#module name='yeah-module'}}\
 The author of the module is: {{author}}.\
 {{/module}}";
@@ -58,6 +58,7 @@ console.log(handlebars.compile(template)(docs));
       * [.module()](#module_ddata.module)
       * [.identifier()](#module_ddata.identifier)
       * [.classes()](#module_ddata.classes)
+      * [.functions()](#module_ddata.functions)
       * [.class()](#module_ddata.class)
       * [.function()](#module_ddata.function)
       * [.namespace()](#module_ddata.namespace)
@@ -99,7 +100,7 @@ e.g. namepaths `module:Something` or type expression `Array.<module:Something>`
 <a name="module_ddata.isClass"></a>
 ### ddata.isClass() ⇒ <code>boolean</code>
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
-**this**: {identifier}  
+**this**: <code>{identifier}</code>  
 <a name="module_ddata.isClassMember"></a>
 ### ddata.isClassMember() ⇒ <code>boolean</code>
 returns true if the parent of the current identifier is a class
@@ -120,7 +121,7 @@ Returns an array of identifiers matching the query
 return the identifiers which are a `memberof` this one. Exclude externals without descriptions.
 
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
-**this**: {identifier}  
+**this**: <code>{identifier}</code>  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -132,7 +133,7 @@ return the identifiers which are a `memberof` this one. Exclude externals withou
 return a flat list containing all decendants
 
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
-**this**: {identifier}  
+**this**: <code>{identifier}</code>  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -144,7 +145,7 @@ return a flat list containing all decendants
 returns the exported identifier of this module
 
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
-**this**: {identifier}  
+**this**: <code>{identifier}</code>  
 <a name="module_ddata._identifier"></a>
 ### ddata._identifier()
 Returns an identifier matching the query
@@ -170,7 +171,7 @@ extracts url and caption data from @link tags
 returns the parent name, instantiated if necessary
 
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
-**this**: {identifier}  
+**this**: <code>{identifier}</code>  
 <a name="module_ddata.option"></a>
 ### ddata.option()
 returns a dmd option, e.g. "sort-by", "heading-depth" etc.
@@ -257,6 +258,12 @@ render the block for each class
 
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **Category**: Block helper: selector  
+<a name="module_ddata.functions"></a>
+### ddata.functions()
+render the block for each function/method
+
+**Kind**: static method of <code>[ddata](#module_ddata)</code>  
+**Category**: Block helper: selector  
 <a name="module_ddata.class"></a>
 ### ddata.class()
 render the supplied block for the specified class
@@ -329,7 +336,7 @@ returns a unique ID string suitable for use as an `href`.
 
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **Category**: Returns string  
-**this**: {identifier}  
+**this**: <code>{identifier}</code>  
 **Example**  
 ```js
 > ddata.anchorName.call({ id: "module:yeah--Yeah()" })
@@ -347,7 +354,7 @@ Returns the method signature, e.g. `(options, [onComplete])`
 
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
 **Category**: Returns string  
-**this**: {identifier}  
+**this**: <code>{identifier}</code>  
 <a name="module_ddata.showMainIndex"></a>
 ### ddata.showMainIndex() ⇒ <code>boolean</code>
 True if there at least two top-level identifiers (i.e. globals or modules)
