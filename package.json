@@ -1,7 +1,7 @@
 {
   "name": "ddata",
   "author": "Lloyd Brookes <75pound@gmail.com>",
-  "version": "0.1.17",
+  "version": "0.2.0",
   "description": "ddata",
   "repository": "https://github.com/jsdoc2md/ddata.git",
   "main": "./lib/ddata.js",
