@@ -15,25 +15,25 @@ var options = makeOptions([
 ]);
 
 test("link", function(t){
-    var result = ddata.link("module:handbrake-js~Handbrake", options);
+    var result = ddata._link("module:handbrake-js~Handbrake", options);
     t.deepEqual(result, { name: 'Handbrake', url: '#module_handbrake-js..Handbrake' });
     t.end();
 });
 
 test("link", function(t){
-    var result = ddata.link("module:cjs/class~innerProp", options);
+    var result = ddata._link("module:cjs/class~innerProp", options);
     t.deepEqual(result, { name: 'innerProp', url: '#module_cjs/class..innerProp' });
     t.end();
 });
 
 test("url", function(t){
-    var result = ddata.link("http://example.com", options);
+    var result = ddata._link("http://example.com", options);
     t.deepEqual(result, { name: 'http://example.com', url: null });
     t.end();
 });
 
 test("link", function(t){
-    var result = ddata.link("clive", options);
+    var result = ddata._link("clive", options);
     t.deepEqual(result, { name: "clive", url: null });
     t.end();
 });
