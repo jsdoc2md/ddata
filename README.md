@@ -2,6 +2,7 @@
 [![npm module downloads per month](http://img.shields.io/npm/dm/ddata.svg)](https://www.npmjs.org/package/ddata)
 [![Build Status](https://travis-ci.org/jsdoc2md/ddata.svg?branch=master)](https://travis-ci.org/jsdoc2md/ddata)
 [![Dependency Status](https://david-dm.org/jsdoc2md/ddata.svg)](https://david-dm.org/jsdoc2md/ddata)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/feross/standard)
 
 <a name="module_ddata"></a>
 ## ddata
@@ -9,16 +10,16 @@ ddata is a collection of handlebars helpers for working with the documentation d
 
 **Example**  
 ```js
-var handlebars = require("handlebars");
-var ddata = require("ddata");
-var docs = require("./docs.json"); // jsdoc-parse output
+var handlebars = require("handlebars")
+var ddata = require("ddata")
+var docs = require("./docs.json") // jsdoc-parse output
 
-handlebars.registerHelper(ddata);
+handlebars.registerHelper(ddata)
 var template =
 "{{#module name='yeah-module'}}\
 The author of the module is: {{author}}.\
-{{/module}}";
-console.log(handlebars.compile(template)(docs));
+{{/module}}"
+console.log(handlebars.compile(template)(docs))
 ```
 
 * [ddata](#module_ddata)
@@ -40,7 +41,6 @@ console.log(handlebars.compile(template)(docs));
     * [.optionEquals()](#module_ddata.optionEquals)
     * [.optionSet()](#module_ddata.optionSet)
     * [.optionIsSet()](#module_ddata.optionIsSet)
-    * [.indent()](#module_ddata.indent)
     * [.stripNewlines()](#module_ddata.stripNewlines)
     * [.headingDepth()](#module_ddata.headingDepth)
     * [.depth()](#module_ddata.depth)
@@ -49,7 +49,6 @@ console.log(handlebars.compile(template)(docs));
     * [.indexDepth()](#module_ddata.indexDepth)
     * [.indexDepthIncrement()](#module_ddata.indexDepthIncrement)
     * [.indexDepthDecrement()](#module_ddata.indexDepthDecrement)
-    * [.indexDepth()](#module_ddata.indexDepth)
     * _Block helper: selector_
       * [.identifiers()](#module_ddata.identifiers)
       * [.orphans()](#module_ddata.orphans)
@@ -186,9 +185,6 @@ returns a dmd option, e.g. "sort-by", "heading-depth" etc.
 <a name="module_ddata.optionIsSet"></a>
 ### ddata.optionIsSet()
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
-<a name="module_ddata.indent"></a>
-### ddata.indent()
-**Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.stripNewlines"></a>
 ### ddata.stripNewlines()
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
@@ -212,9 +208,6 @@ returns a dmd option, e.g. "sort-by", "heading-depth" etc.
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.indexDepthDecrement"></a>
 ### ddata.indexDepthDecrement()
-**Kind**: static method of <code>[ddata](#module_ddata)</code>  
-<a name="module_ddata.indexDepth"></a>
-### ddata.indexDepth()
 **Kind**: static method of <code>[ddata](#module_ddata)</code>  
 <a name="module_ddata.identifiers"></a>
 ### ddata.identifiers()
@@ -366,5 +359,5 @@ True if there at least two top-level identifiers (i.e. globals or modules)
 **Kind**: inner method of <code>[ddata](#module_ddata)</code>  
 **Category**: Block helper: util  
 
-* * * 
+* * *
 &copy; 2015 Lloyd Brookes \<75pound@gmail.com\>. Documented by [jsdoc-to-markdown](https://github.com/jsdoc2md/jsdoc-to-markdown).
