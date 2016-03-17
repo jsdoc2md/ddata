@@ -23,62 +23,62 @@ console.log(handlebars.compile(template)(docs))
 ```
 
 * [ddata](#module_ddata)
-  * _static_
-    * [._globals()](#module_ddata._globals)
-    * [._link(input, options)](#module_ddata._link)
-    * [.isClass()](#module_ddata.isClass) ⇒ <code>boolean</code>
-    * [.isClassMember()](#module_ddata.isClassMember) ⇒ <code>boolean</code>
-    * [.isEvent()](#module_ddata.isEvent) ⇒ <code>boolean</code>
-    * [._identifiers()](#module_ddata._identifiers) ⇒ <code>array</code>
-    * [._children([sortBy], [min])](#module_ddata._children) ⇒ <code>Array.&lt;identifier&gt;</code>
-    * [.descendants([sortBy], [min])](#module_ddata.descendants) ⇒ <code>Array.&lt;identifier&gt;</code>
-    * [.exported()](#module_ddata.exported) ⇒ <code>identifier</code>
-    * [._identifier()](#module_ddata._identifier)
-    * [.parentObject()](#module_ddata.parentObject)
-    * [.parseLink(text)](#module_ddata.parseLink) ⇒ <code>Array.&lt;{original: string, caption: string, url: string}&gt;</code>
-    * [.parentName()](#module_ddata.parentName) ⇒ <code>string</code>
-    * [.option()](#module_ddata.option)
-    * [.optionEquals()](#module_ddata.optionEquals)
-    * [.optionSet()](#module_ddata.optionSet)
-    * [.optionIsSet()](#module_ddata.optionIsSet)
-    * [.stripNewlines()](#module_ddata.stripNewlines)
-    * [.headingDepth()](#module_ddata.headingDepth)
-    * [.depth()](#module_ddata.depth)
-    * [.depthIncrement()](#module_ddata.depthIncrement)
-    * [.depthDecrement()](#module_ddata.depthDecrement)
-    * [.indexDepth()](#module_ddata.indexDepth)
-    * [.indexDepthIncrement()](#module_ddata.indexDepthIncrement)
-    * [.indexDepthDecrement()](#module_ddata.indexDepthDecrement)
-    * _Block helper: selector_
-      * [.identifiers()](#module_ddata.identifiers)
-      * [.orphans()](#module_ddata.orphans)
-      * [.globals()](#module_ddata.globals)
-      * [.modules()](#module_ddata.modules)
-      * [.module()](#module_ddata.module)
-      * [.identifier()](#module_ddata.identifier)
-      * [.classes()](#module_ddata.classes)
-      * [.functions()](#module_ddata.functions)
-      * [.class()](#module_ddata.class)
-      * [.function()](#module_ddata.function)
-      * [.namespace()](#module_ddata.namespace)
-      * [.enum()](#module_ddata.enum)
-      * [.misc()](#module_ddata.misc)
-      * [.children()](#module_ddata.children)
-      * [.indexChildren()](#module_ddata.indexChildren)
-    * _Block helper: util_
-      * [.link(id)](#module_ddata.link)
-      * [.returnSig2()](#module_ddata.returnSig2) ⇒ <code>Object</code>
-    * _Returns list_
-      * [._orphans()](#module_ddata._orphans) ⇒ <code>array</code>
-    * _Returns string_
-      * [.anchorName()](#module_ddata.anchorName) ⇒ <code>string</code>
-      * [.md()](#module_ddata.md)
-      * [.methodSig()](#module_ddata.methodSig) ⇒ <code>string</code>
-    * _returns boolean_
-      * [.showMainIndex()](#module_ddata.showMainIndex) ⇒ <code>boolean</code>
-  * _inner_
-    * _Block helper: util_
-      * [~sig()](#module_ddata..sig)
+    * _static_
+        * [._globals()](#module_ddata._globals)
+        * [._link(input, options)](#module_ddata._link)
+        * [.isClass()](#module_ddata.isClass) ⇒ <code>boolean</code>
+        * [.isClassMember()](#module_ddata.isClassMember) ⇒ <code>boolean</code>
+        * [.isEvent()](#module_ddata.isEvent) ⇒ <code>boolean</code>
+        * [._identifiers()](#module_ddata._identifiers) ⇒ <code>array</code>
+        * [._children([sortBy], [min])](#module_ddata._children) ⇒ <code>Array.&lt;identifier&gt;</code>
+        * [.descendants([sortBy], [min])](#module_ddata.descendants) ⇒ <code>Array.&lt;identifier&gt;</code>
+        * [.exported()](#module_ddata.exported) ⇒ <code>identifier</code>
+        * [._identifier()](#module_ddata._identifier)
+        * [.parentObject()](#module_ddata.parentObject)
+        * [.parseLink(text)](#module_ddata.parseLink) ⇒ <code>Array.&lt;{original: string, caption: string, url: string}&gt;</code>
+        * [.parentName()](#module_ddata.parentName) ⇒ <code>string</code>
+        * [.option()](#module_ddata.option)
+        * [.optionEquals()](#module_ddata.optionEquals)
+        * [.optionSet()](#module_ddata.optionSet)
+        * [.optionIsSet()](#module_ddata.optionIsSet)
+        * [.stripNewlines()](#module_ddata.stripNewlines)
+        * [.headingDepth()](#module_ddata.headingDepth)
+        * [.depth()](#module_ddata.depth)
+        * [.depthIncrement()](#module_ddata.depthIncrement)
+        * [.depthDecrement()](#module_ddata.depthDecrement)
+        * [.indexDepth()](#module_ddata.indexDepth)
+        * [.indexDepthIncrement()](#module_ddata.indexDepthIncrement)
+        * [.indexDepthDecrement()](#module_ddata.indexDepthDecrement)
+        * _Block helper: selector_
+            * [.identifiers()](#module_ddata.identifiers)
+            * [.orphans()](#module_ddata.orphans)
+            * [.globals()](#module_ddata.globals)
+            * [.modules()](#module_ddata.modules)
+            * [.module()](#module_ddata.module)
+            * [.identifier()](#module_ddata.identifier)
+            * [.classes()](#module_ddata.classes)
+            * [.functions()](#module_ddata.functions)
+            * [.class()](#module_ddata.class)
+            * [.function()](#module_ddata.function)
+            * [.namespace()](#module_ddata.namespace)
+            * [.enum()](#module_ddata.enum)
+            * [.misc()](#module_ddata.misc)
+            * [.children()](#module_ddata.children)
+            * [.indexChildren()](#module_ddata.indexChildren)
+        * _Block helper: util_
+            * [.link(id)](#module_ddata.link)
+            * [.returnSig2()](#module_ddata.returnSig2) ⇒ <code>Object</code>
+        * _Returns list_
+            * [._orphans()](#module_ddata._orphans) ⇒ <code>array</code>
+        * _Returns string_
+            * [.anchorName()](#module_ddata.anchorName) ⇒ <code>string</code>
+            * [.md()](#module_ddata.md)
+            * [.methodSig()](#module_ddata.methodSig) ⇒ <code>string</code>
+        * _returns boolean_
+            * [.showMainIndex()](#module_ddata.showMainIndex) ⇒ <code>boolean</code>
+    * _inner_
+        * _Block helper: util_
+            * [~sig()](#module_ddata..sig)
 
 <a name="module_ddata._globals"></a>
 ### ddata._globals()
@@ -360,4 +360,4 @@ True if there at least two top-level identifiers (i.e. globals or modules)
 **Category**: Block helper: util  
 
 * * *
-&copy; 2015 Lloyd Brookes \<75pound@gmail.com\>. Documented by [jsdoc-to-markdown](https://github.com/jsdoc2md/jsdoc-to-markdown).
+&copy; 2014-16 Lloyd Brookes \<75pound@gmail.com\>. Documented by [jsdoc-to-markdown](https://github.com/jsdoc2md/jsdoc-to-markdown).
