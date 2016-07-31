@@ -20,17 +20,16 @@
     "p": "npm run p1; npm run p2; npm run p3; echo"
   },
   "devDependencies": {
-    "tape": "^4.5.1"
+    "tape": "^4.6.0"
   },
   "dependencies": {
-    "array-back": "^1.0.2",
-    "core-js": "^2.2.0",
+    "array-back": "^1.0.3",
+    "core-js": "^2.4.1",
     "handlebars": "^4.0.5",
-    "marked": "~0.3.5",
-    "object-get": "^2.0.2",
-    "object-tools": "^2.0.6",
-    "reduce-flatten": "^1.0.0",
-    "string-tools": "~1.0.0",
+    "marked": "~0.3.6",
+    "object-get": "^2.1.0",
+    "reduce-flatten": "^1.0.1",
+    "string-tools": "^1.0.0",
     "test-value": "^2.0.0"
   }
 }
