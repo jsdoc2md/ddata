@@ -1,8 +1,14 @@
-[![view on npm](http://img.shields.io/npm/v/ddata.svg)](https://www.npmjs.org/package/ddata)
-[![npm module downloads](http://img.shields.io/npm/dt/ddata.svg)](https://www.npmjs.org/package/ddata)
+[![view on npm](https://badgen.net/npm/v/ddata)](https://www.npmjs.org/package/ddata)
+[![npm module downloads](https://badgen.net/npm/dt/ddata)](https://www.npmjs.org/package/ddata)
+[![Gihub repo dependents](https://badgen.net/github/dependents-repo/jsdoc2md/ddata)](https://github.com/jsdoc2md/ddata/network/dependents?dependent_type=REPOSITORY)
+[![Gihub package dependents](https://badgen.net/github/dependents-pkg/jsdoc2md/ddata)](https://github.com/jsdoc2md/ddata/network/dependents?dependent_type=PACKAGE)
+[![Node.js CI](https://github.com/jsdoc2md/ddata/actions/workflows/node.js.yml/badge.svg)](https://github.com/jsdoc2md/ddata/actions/workflows/node.js.yml)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/feross/standard)
 
-<a name="module_ddata"></a>
-## Deprecated
+# ddata
 
-The ddata code was merged into [dmd](https://github.com/jsdoc2md/ddata). This module is no longer in use.
+***WIP. Refactor in progress.***
+
+* * *
+
+&copy; 2014-24 [Lloyd Brookes](https://github.com/75lb) \<75pound@gmail.com\>.
