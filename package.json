@@ -45,5 +45,8 @@
       "dist"
     ],
     "envs": []
+  },
+  "dependencies": {
+    "common-sequence": "^3.0.0"
   }
 }

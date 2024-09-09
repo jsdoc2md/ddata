@@ -15,6 +15,7 @@ test.set('children', async function () {
     { id: '7' }
   ])
   const result = parent.children(doclets)
+  // this.data = result.identifiers
   a.deepEqual(result[0], new Doclet({ id: '1', memberof: 'something' }))
   a.deepEqual(result[1], new Doclet({ id: '2', memberof: 'something' }))
   a.deepEqual(result[2], new Doclet({ id: '6', memberof: 'something', kind: 'external', description: 'clive' }))
