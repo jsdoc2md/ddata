@@ -42,92 +42,6 @@ class Doclet {
   isPrivate () { return this.access === 'private' }
   isProtected () { return this.access === 'protected' }
 
-  /**
-  returns a unique ID string suitable for use as an `href`.
-  @this {identifier}
-  @returns {string}
-  @static
-  @category Returns string
-  @example
-  ```js
-  > ddata.anchorName.call({ id: "module:yeah--Yeah()" })
-  'module_yeah--Yeah_new'
-  ```
-  */
-  anchorName (options) {
-    if (!this.id) throw new Error('[anchorName helper] cannot create a link without a id: ' + JSON.stringify(this))
-    if (this.inherited) {
-      options.hash.id = this.inherits;
-      const inherits = _identifier(options);
-      if (inherits) {
-        return anchorName.call(inherits, options)
-      } else {
-        return ''
-      }
-    }
-    return util.format(
-      '%s%s%s',
-      this.isExported ? 'exp_' : '',
-      this.kind === 'constructor' ? 'new_' : '',
-      this.id
-        .replace(/:/g, '_')
-        .replace(/~/g, '..')
-        .replace(/\(\)/g, '_new')
-        .replace(/#/g, '+')
-    )
-  }
-
-  /**
-   * Returns the method signature, e.g. `(options, [onComplete])`
-   * @returns {string}
-   */
-  methodSig () {
-    return arrayify(this.params).filter(function (param) {
-      return param.name && !/\./.test(param.name)
-    }).map(function (param) {
-      if (param.variable) {
-        return param.optional ? '[...' + param.name + ']' : '...' + param.name
-      } else {
-        return param.optional ? '[' + param.name + ']' : param.name
-      }
-    }).join(', ')
-  }
-
-  /**
-   * returns the parent name, instantiated if necessary
-   * @returns {string}
-   */
-  parentName (options) {
-    function instantiate (input) {
-      if (/^[A-Z]{3}/.test(input)) {
-        return input.replace(/^([A-Z]+)([A-Z])/, function (str, p1, p2) {
-          return p1.toLowerCase() + p2
-        })
-      } else {
-        return input.charAt(0).toLowerCase() + input.slice(1)
-      }
-    }
-
-    /* don't bother with a parentName for exported identifiers */
-    if (this.isExported) return ''
-
-    if (this.memberof && this.kind !== 'constructor') {
-      const parent = arrayify(options.data.root).find(d => d.id === this.memberof);
-      if (parent) {
-        if (this.scope === 'instance') {
-          const name = parent.typicalname || parent.name;
-          return instantiate(name)
-        } else if (this.scope === 'static' && !(parent.kind === 'class' || parent.kind === 'constructor')) {
-          return parent.typicalname || parent.name
-        } else {
-          return parent.name
-        }
-      } else {
-        return this.memberof
-      }
-    }
-  }
-
   setLevel (level) {
     this.level = level;
   }
@@ -319,6 +233,11 @@ class Doclets extends Array {
       })
   }
 
+  identifier (query) {
+    return this.identifiers(query)[0]
+  }
+
+
   /**
    * Returns identifiers with scope='global'. Additionally, omits externals without a description.
    */
@@ -331,6 +250,10 @@ class Doclets extends Array {
         return true
       }
     })
+  }
+
+  parentObject () {
+    return this.find(d => d.id === this.memberof)
   }
 }
 
